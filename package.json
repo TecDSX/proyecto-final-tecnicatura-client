@@ -11,11 +11,9 @@
     "lint:fix": "eslint ./src --ext .js,.ts,.tsx,.jsx --fix"
   },
   "husky": {
-    "hooks": [
-      {
-        "pre-push": "lint"
-      }
-    ]
+    "hooks": {
+      "pre-push": "lint"
+    }
   },
   "repository": {
     "type": "git",
