@@ -6,12 +6,12 @@
   margin: auto;
   background-color: rgba(128, 128, 128, 0.205);
   border-radius: 10px;
-  .login-box__title {
+  &__title {
     position: relative;
     text-align: center;
     top: 10px;
     color: rgb(85, 85, 85);
-    font-family: "Inter", Arial, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
   }
   .text-field {
     position: relative;
