@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import '../styles/theme.scss';
 import { RegisterForm } from '../components/RegisterForm/index';
 import { FormProvider } from '../contexts/FormContext';
