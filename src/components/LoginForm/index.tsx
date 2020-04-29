@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import './LoginForm.scss';
 import { TextField } from '../Textfield';
 import { FormContext } from '../../contexts/FormContext';
+import { Button } from '../../components/Button';
 export const LoginForm = () => {
   const {
     // @ts-ignore
@@ -11,26 +12,29 @@ export const LoginForm = () => {
   return (
     <div className="login-box">
       <h2 className="login-box__title">WeCollab</h2>
-
       <TextField
         name="username"
-        text="Username"
+        label="Username"
         type="text"
         value={username}
         onChange={onChange}
       />
-
       <TextField
         name="password"
-        text="Password"
+        label="Password"
         type="password"
         value={password}
         onChange={onChange}
       />
-
-      <div className="button-holder">
-        <button type="submit">Login</button>
-      </div>
+      <Button type="submit" label="Login" onClick={() => { }} />
+      <p className="register-label">If you not have a account</p>
+      <Button
+        type="submit"
+        label="Register Here!"
+        onClick={() => {
+          document.location.href = 'register';
+        }}
+      />
     </div>
   );
 };

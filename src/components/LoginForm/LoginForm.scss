@@ -1,58 +1,25 @@
 .login-box {
   position: relative;
+  top: 30%;
   width: 200px;
   height: max-content;
   padding-bottom: 10px;
   margin: auto;
-  background-color: rgba(128, 128, 128, 0.205);
+  background-color: rgba(255, 255, 255, 0.479);
   border-radius: 10px;
   &__title {
     position: relative;
     text-align: center;
     top: 10px;
-    color: rgb(85, 85, 85);
-    font-family: 'Inter', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+    font-family: "DejaVu Sans Mono", monospace;
+    font-weight: 5;
   }
-  .text-field {
-    position: relative;
-    width: 150px;
-    margin: auto;
-    margin-bottom: 10px;
-    label {
-      font-size: 8px;
-      color: rgb(54, 54, 54);
-      margin-left: 10px;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-    input {
-      width: 133px;
-      height: 8px;
-      outline: none;
-      border-style: solid;
-      border-radius: 12px;
-      border-width: 1px;
-      border-color: grey;
-      padding: 5px;
-      padding-left: 10px;
-      font-size: 10px;
-      border: 1px solid rgb(185, 185, 185);
-    }
-    input:focus {
-      border-color: rgb(36, 36, 36);
-    }
-  }
-  .button-holder {
-    margin: 10px;
+  .register-label {
+    font-size: 10px;
+    color: rgb(63, 63, 63);
+    margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    button {
-      border-radius: 4px;
-      border: 1px solid rgb(156, 155, 155);
-      font-size: 13px;
-      padding: 5px 20px 5px 20px;
-    }
-    button:hover {
-      border-style: solid;
-      border-color: rgb(36, 36, 36);
-    }
   }
 }
