@@ -1,9 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, ChangeEvent } from 'react';
-// import './TextField.scss';
+import './TextField.scss';
 export const TextField = (props: {
   name: string;
-  text: string;
+  label: string;
+  error?: string;
   type: string;
   value?: any;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -11,7 +12,7 @@ export const TextField = (props: {
   const [value, setValue] = useState(props.value || null);
   return (
     <div className="text-field">
-      <label htmlFor={props.name}>{props.text}</label>
+      <label htmlFor={props.name}>{props.label}</label>
       <input
         type={props.type}
         name={props.name}
@@ -25,6 +26,7 @@ export const TextField = (props: {
               }
         }
       />
+      <label className="error-label">{props.error}</label>
     </div>
   );
 };

@@ -1,21 +1,15 @@
 import React, { Fragment } from 'react';
+import '../styles/theme.scss';
 import { RegisterForm } from '../components/RegisterForm/index';
 import { FormProvider } from '../contexts/FormContext';
 
 const RegisterPage = () => {
   return (
-    <Fragment>
+    <div className="backgroud-page">
       <FormProvider values={{ username: '', email: '', password: '' }}>
         <RegisterForm />
       </FormProvider>
-      <button
-        onClick={() => {
-          document.location.href = 'login';
-        }}
-      >
-        Login
-      </button>
-    </Fragment>
+    </div>
   );
 };
 RegisterPage.displayName = 'Register Page';
