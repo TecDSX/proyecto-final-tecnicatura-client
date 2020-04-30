@@ -1,10 +1,10 @@
-import React, { useContext, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import './AccountForm.scss';
 import { LoginForm } from '../LoginForm';
 import { RegisterForm } from '../RegisterForm';
 import { FormProvider } from '../../contexts/FormContext';
 export const AccountForm = () => {
-  let loginState: boolean = false;
+  const loginState: boolean = false;
   return (
     <Fragment>
       <FormProvider values={{ username: '', password: '' }}>
@@ -15,4 +15,4 @@ export const AccountForm = () => {
       </FormProvider>
     </Fragment>
   );
-}
+};

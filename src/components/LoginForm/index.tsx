@@ -3,9 +3,7 @@ import './LoginForm.scss';
 import { TextField } from '../Textfield';
 import { FormContext } from '../../contexts/FormContext';
 import { Button } from '../../components/Button';
-export const LoginForm = (props: {
-  className?: string;
-}) => {
+export const LoginForm = (props: { className?: string }) => {
   const {
     // @ts-ignore
     values: { username, password },
@@ -28,7 +26,7 @@ export const LoginForm = (props: {
         value={password}
         onChange={onChange}
       />
-      <Button type="submit" label="Login" onClick={() => { }} />
+      <Button type="submit" label="Login" onClick={() => {}} />
       <p className="register-label">If you not have a account</p>
       <Button
         type="submit"

@@ -3,9 +3,7 @@ import './RegisterForm.scss';
 import { FormContext } from '../../contexts/FormContext';
 import { TextField } from '../Textfield';
 import { Button } from '../Button';
-export const RegisterForm = (props: {
-  className?: string;
-}) => {
+export const RegisterForm = (props: { className?: string }) => {
   const {
     // @ts-ignore
     values: { username, password, email },
@@ -35,7 +33,7 @@ export const RegisterForm = (props: {
         value={password}
         onChange={onChange}
       />
-      <Button type="submit" label="Sign Up" onClick={() => { }} />
+      <Button type="submit" label="Sign Up" onClick={() => {}} />
       <p className="login-label">If you have a account</p>
       <Button
         type="submit"
