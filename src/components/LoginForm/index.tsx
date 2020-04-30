@@ -3,14 +3,16 @@ import './LoginForm.scss';
 import { TextField } from '../Textfield';
 import { FormContext } from '../../contexts/FormContext';
 import { Button } from '../../components/Button';
-export const LoginForm = () => {
+export const LoginForm = (props: {
+  className?: string;
+}) => {
   const {
     // @ts-ignore
     values: { username, password },
     onChange,
   } = useContext(FormContext);
   return (
-    <div className="login-box">
+    <div className={`${props.className} login-box`}>
       <h2 className="login-box__title">WeCollab</h2>
       <TextField
         name="username"
