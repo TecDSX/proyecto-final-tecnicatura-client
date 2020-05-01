@@ -9,6 +9,7 @@ import React, {
 export const FormContext = createContext({
   values: {},
   onChange: (event: ChangeEvent<HTMLInputElement>) => undefined,
+  setInitialValues: (initialValues: object) => undefined,
 });
 export const FormProvider = (props: {
   values: object;
@@ -20,7 +21,8 @@ export const FormProvider = (props: {
   }: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [name]: value });
   };
-  const context = { values, onChange };
+  const setInitialValues = (initialValues) => setValues(initialValues);
+  const context = { values, onChange, setInitialValues };
   return (
     <FormContext.Provider value={context}>
       {props.children}

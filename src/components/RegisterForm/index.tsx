@@ -1,16 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './RegisterForm.scss';
 import { FormContext } from '../../contexts/FormContext';
 import { TextField } from '../Textfield';
-import { Button } from '../Button';
 export const RegisterForm = (props: { className?: string }) => {
+  const initialValues = { username: '', email: '', password: '' };
+  // eslint-disable-next-line no-unused-vars
+  const [clear, setClear] = useState(false);
   const {
     // @ts-ignore
-    values: { username, password, email },
+    values,
     onChange,
+    setInitialValues,
   } = useContext(FormContext);
+  useEffect(() => {
+    setInitialValues(initialValues);
+  }, []);
+  useEffect(() => {
+    if (values === initialValues) setClear(true);
+  }, [values]);
+  // @ts-ignore
+  const { username, password, email } = values;
   return (
-    <div className={`${props.className} register-box`}>
+    <form className={`${props.className} register-box`}>
       <h2 className="register-box__title">WeCollab</h2>
       <TextField
         name="username"
@@ -18,6 +29,7 @@ export const RegisterForm = (props: { className?: string }) => {
         label="Username"
         value={username}
         onChange={onChange}
+        required={true}
       />
       <TextField
         name="email"
@@ -25,6 +37,7 @@ export const RegisterForm = (props: { className?: string }) => {
         label="Email"
         value={email}
         onChange={onChange}
+        required={true}
       />
       <TextField
         name="password"
@@ -32,17 +45,10 @@ export const RegisterForm = (props: { className?: string }) => {
         label="Password"
         value={password}
         onChange={onChange}
+        required={true}
       />
-      <Button type="submit" label="Sign Up" onClick={() => {}} />
-      <p className="login-label">If you have a account</p>
-      <Button
-        type="submit"
-        label="Login Here!"
-        onClick={() => {
-          document.location.href = 'login';
-        }}
-      />
-    </div>
+      <button type="submit">Sign Up</button>
+    </form>
   );
 };
 RegisterForm.displayName = 'Login Form';

@@ -1,16 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './LoginForm.scss';
 import { TextField } from '../Textfield';
 import { FormContext } from '../../contexts/FormContext';
 import { Button } from '../../components/Button';
 export const LoginForm = (props: { className?: string }) => {
+  const initialValues = { username: '', password: '' };
+  // eslint-disable-next-line no-unused-vars
+  const [clear, setClear] = useState(false);
   const {
     // @ts-ignore
-    values: { username, password },
+    values,
     onChange,
+    setInitialValues,
   } = useContext(FormContext);
+  useEffect(() => {
+    setInitialValues(initialValues);
+  }, []);
+  useEffect(() => {
+    if (values === initialValues) setClear(true);
+  }, [values]);
+  // @ts-ignore
+  const { username, password } = values;
   return (
-    <div className={`${props.className} login-box`}>
+    <form className={`${props.className} login-box`}>
       <h2 className="login-box__title">WeCollab</h2>
       <TextField
         name="username"
@@ -18,6 +30,7 @@ export const LoginForm = (props: { className?: string }) => {
         type="text"
         value={username}
         onChange={onChange}
+        required={true}
       />
       <TextField
         name="password"
@@ -25,17 +38,10 @@ export const LoginForm = (props: { className?: string }) => {
         type="password"
         value={password}
         onChange={onChange}
+        required={true}
       />
       <Button type="submit" label="Login" onClick={() => {}} />
-      <p className="register-label">If you not have a account</p>
-      <Button
-        type="submit"
-        label="Register Here!"
-        onClick={() => {
-          document.location.href = 'register';
-        }}
-      />
-    </div>
+    </form>
   );
 };
 LoginForm.displayName = 'Login Form';

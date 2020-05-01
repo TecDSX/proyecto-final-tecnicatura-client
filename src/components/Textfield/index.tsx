@@ -8,6 +8,7 @@ export const TextField = (props: {
   type: string;
   value?: any;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
 }) => {
   const [value, setValue] = useState(props.value || null);
   return (
@@ -25,6 +26,7 @@ export const TextField = (props: {
                 setValue(value);
               }
         }
+        required={props.required || false}
       />
       <label className="error-label">{props.error}</label>
     </div>
