@@ -1,47 +1,61 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, ChangeEvent } from 'react';
 import './LoginForm.scss';
 import { TextField } from '../Textfield';
 import { FormContext } from '../../contexts/FormContext';
 import { Button } from '../../components/Button';
+
 export const LoginForm = (props: { className?: string }) => {
-  const initialValues = { username: '', password: '' };
-  // eslint-disable-next-line no-unused-vars
-  const [clear, setClear] = useState(false);
-  const {
-    // @ts-ignore
-    values,
-    onChange,
-    setInitialValues,
-  } = useContext(FormContext);
-  useEffect(() => {
-    setInitialValues(initialValues);
-  }, []);
-  useEffect(() => {
-    if (values === initialValues) setClear(true);
-  }, [values]);
-  // @ts-ignore
-  const { username, password } = values;
+
+  const initialValues = {
+    username: { value: '', error: '', required: true },
+    x: { value: '', error: '', required: true },
+    password: { value: '', error: '', required: true }
+  }
+
+  const [fields, setFields] = useState(initialValues);
+
+  const onChange = ({
+    target: { value, name },
+  }: ChangeEvent<HTMLInputElement>) => {
+    console.log(`${value} ${name}`)
+    setFields({ ...fields, [name]: { ...fields[name], value: value } });
+  };
+
+  const validationFields = (fields: any) => {
+    Object.keys(fields).forEach((fieldName: string) => {
+      if (!fields[fieldName].value && fields[fieldName].required) {
+        setFields({ ...fields, [fieldName]: { ...fields[fieldName], error: "El campo es requerido!" } })
+      } else {
+        setFields({ ...fields, [fieldName]: { ...fields[fieldName], error: "" } })
+      }
+    })
+  }
+
+  const login = () => {
+    // validationFields(fields)
+    document.location.href = 'Dashboard';
+  }
+
   return (
-    <form className={`${props.className} login-box`}>
-      <h2 className="login-box__title">WeCollab</h2>
+    <div className="login-box">
       <TextField
         name="username"
-        label="Username"
-        type="text"
-        value={username}
+        label="Usuario"
+        type="username"
+        value={fields.username.value}
+        error={fields.username.error}
         onChange={onChange}
-        required={true}
       />
       <TextField
         name="password"
-        label="Password"
+        label="Contrasena"
         type="password"
-        value={password}
+        value={fields.password.value}
+        error={fields.password.error}
         onChange={onChange}
-        required={true}
       />
-      <Button type="submit" label="Login" onClick={() => {}} />
-    </form>
+      <Button width="100px" onClick={login} label="Login" />
+    </div>
   );
 };
 LoginForm.displayName = 'Login Form';

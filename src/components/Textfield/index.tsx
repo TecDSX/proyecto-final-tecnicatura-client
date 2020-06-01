@@ -1,35 +1,51 @@
 // eslint-disable-next-line no-unused-vars
-import React, { useState, ChangeEvent } from 'react';
+import React, { ChangeEvent, useState, useEffect } from 'react';
 import './TextField.scss';
+
 export const TextField = (props: {
   name: string;
-  label: string;
+  type?: string;
+  label?: string;
   error?: string;
-  type: string;
   value?: any;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  result?: string;
   required?: boolean;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }) => {
-  const [value, setValue] = useState(props.value || null);
+
+  const [error, setError] = useState(props.error);
+
+  useEffect(() => {
+    setError(props.error);
+  }, [props.error])
+
   return (
     <div className="text-field">
-      <label htmlFor={props.name}>{props.label}</label>
+      <label>{props.label}</label>
       <input
-        type={props.type}
-        name={props.name}
+        autoFocus
+        defaultValue={props.value}
         id={props.name}
-        value={props.value || value}
+        type={props.type}
+        required={props.required}
+        name={props.name}
         onChange={
           props.onChange
-            ? props.onChange
-            : ({ target: { value } }) => {
-                setValue(value);
-              }
         }
-        required={props.required || false}
       />
-      <label className="error-label">{props.error}</label>
+      <ErrorLabel value={error} />
     </div>
   );
 };
+
+const ErrorLabel = (props: {
+  value: string;
+}) => {
+  if (props.value) {
+    return <label className="error-label">{props.value}</label>;
+  } else {
+    return null;
+  }
+};
+
 TextField.displayName = 'Text Field';

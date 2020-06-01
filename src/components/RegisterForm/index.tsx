@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './RegisterForm.scss';
 import { FormContext } from '../../contexts/FormContext';
 import { TextField } from '../Textfield';
+import { Button } from '../Button';
 export const RegisterForm = (props: { className?: string }) => {
   const initialValues = { username: '', email: '', password: '' };
   // eslint-disable-next-line no-unused-vars
@@ -22,7 +23,6 @@ export const RegisterForm = (props: { className?: string }) => {
   const { username, password, email } = values;
   return (
     <form className={`${props.className} register-box`}>
-      <h2 className="register-box__title">WeCollab</h2>
       <TextField
         name="username"
         type="text"
@@ -47,7 +47,7 @@ export const RegisterForm = (props: { className?: string }) => {
         onChange={onChange}
         required={true}
       />
-      <button type="submit">Sign Up</button>
+      <Button width="100px" type="submit" label="Sign Up" />
     </form>
   );
 };

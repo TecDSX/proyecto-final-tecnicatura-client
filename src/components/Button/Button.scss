@@ -1,15 +1,13 @@
 .button-holder {
-  margin: 10px;
   text-align: center;
   button {
-    border-radius: 4px;
-    border: none;
-    font-size: 12px;
-    padding: 5px 20px 5px 20px;
-    background-color: rgb(122, 122, 122);
-    color: white;
+    font-size: 14px;
+    padding: 12px 25px 12px 25px;
+    transition: box-shadow .3s;
+    border: 1px solid rgb(212, 212, 212);
   }
   button:hover {
-    background-color: rgb(167, 167, 167);
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+    cursor: pointer;
   }
 }
