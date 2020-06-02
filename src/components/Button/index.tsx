@@ -14,9 +14,9 @@ export const Button = (props: {
     <div className={`${props.className} button-holder`}>
       <button
         style={{
-          'width': props.width,
+          width: props.width,
           background: props.color,
-          color: props.fontColor
+          color: props.fontColor,
         }}
         type={props.type || 'button'}
         onClick={props.onClick}

@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from 'react';
 import { LoginForm } from '../components/LoginForm/index';
-import { RegisterForm } from '../components/RegisterForm/index';
-import { FormProvider } from '../contexts/FormContext';
+// import { RegisterForm } from '../components/RegisterForm/index';
+// import { FormProvider } from '../contexts/FormContext';
 import { Button } from '../components/Button';
 import './index.scss';
 

@@ -3,15 +3,13 @@ import { LeftMenu } from '../components/LeftMenu';
 import { Toolbar } from '../components/Toolbar';
 import './Dashboard.scss';
 
-
 const DashboardPage = () => {
   return (
     <Fragment>
       <Toolbar />
       <div className="page-box">
         <LeftMenu />
-        <div className="dashboard">
-        </div>
+        <div className="dashboard"></div>
       </div>
     </Fragment>
   );

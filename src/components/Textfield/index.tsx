@@ -12,12 +12,11 @@ export const TextField = (props: {
   required?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 }) => {
-
   const [error, setError] = useState(props.error);
 
   useEffect(() => {
     setError(props.error);
-  }, [props.error])
+  }, [props.error]);
 
   return (
     <div className="text-field">
@@ -29,18 +28,14 @@ export const TextField = (props: {
         type={props.type}
         required={props.required}
         name={props.name}
-        onChange={
-          props.onChange
-        }
+        onChange={props.onChange}
       />
       <ErrorLabel value={error} />
     </div>
   );
 };
 
-const ErrorLabel = (props: {
-  value: string;
-}) => {
+const ErrorLabel = (props: { value: string }) => {
   if (props.value) {
     return <label className="error-label">{props.value}</label>;
   } else {
