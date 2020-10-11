@@ -11,6 +11,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev });
 const expressApp = express();
 const handle = nextApp.getRequestHandler();
+
 export const main = async () => {
   await nextApp.prepare();
   expressApp.use(cookieParser());
